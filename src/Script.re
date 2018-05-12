@@ -53,6 +53,16 @@ let make = (~url, children) => {
     {remote: NotAsked, id: idCount^};
   },
   didMount: self => self.send(Initialize),
+  willUnmount: self =>
+    /* delete callbacks when component unmounts*/
+    observers :=
+      Belt.Map.String.set(
+        observers^,
+        url,
+        Belt.Map.String.get(observers^, url)
+        |> Belt.Option.getWithDefault(_, Belt.Map.Int.empty)
+        |> Belt.Map.Int.remove(_, self.state.id),
+      ),
   reducer: (action, state: state) =>
     switch (action) {
     | Initialize =>
