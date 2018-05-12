@@ -10,7 +10,9 @@ All you can do is pass a `url`.
 
 
 ```
-  /* script is only loaded once */
+
+  /* only a single script tag is created per unique url */
+
   <Script url="https://www.gstatic.com/charts/loader.js">
     ...(
          remote =>
