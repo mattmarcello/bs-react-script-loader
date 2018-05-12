@@ -129,8 +129,7 @@ let make = (~url, children) => {
                 self.send(FlushOnerror);
               },
             );
-            appendChild(script);
-            ();
+            appendChild(script) |> ignore;
           }
         ),
       )
@@ -139,29 +138,27 @@ let make = (~url, children) => {
     | FlushOnload =>
       ReasonReact.SideEffects(
         (
-          self => {
+          _self =>
             Belt.Map.String.get(observers^, url)
             |> Belt.Option.map(_, observers' =>
-                 Belt.Map.Int.forEach(observers', (id, observer) =>
+                 Belt.Map.Int.forEach(observers', (_id, observer) =>
                    observer.onload()
                  )
-               );
-            ();
-          }
+               )
+            |> ignore
         ),
       )
     | FlushOnerror =>
       ReasonReact.SideEffects(
         (
-          self => {
+          _self =>
             Belt.Map.String.get(observers^, url)
             |> Belt.Option.map(_, observers' =>
-                 Belt.Map.Int.forEach(observers', (id, observer) =>
+                 Belt.Map.Int.forEach(observers', (_id, observer) =>
                    observer.onerror()
                  )
-               );
-            ();
-          }
+               )
+            |> ignore
         ),
       )
     },
