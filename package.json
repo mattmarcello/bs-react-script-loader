@@ -1,6 +1,6 @@
 {
   "name": "bs-react-script-loader",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -12,8 +12,7 @@
   "keywords": [
     "BuckleScript"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "matt marcello",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -24,5 +23,10 @@
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10"
   },
-  "repository": "https://github.com/mattmarcello/bs-react-script-loader.git"
+  "description": "A utility for loading third party scripts on the client.",
+  "license": "MIT",
+  "repository": "https://github.com/mattmarcello/bs-react-script-loader.git",
+  "keywords": ["react", "script", "reason"],
+  "homepage": "https://github.com/mattmarcello/bs-react-script-loader",
+  "bugs": "https://github.com/mattmarcello/bs-react-script-loader/issues"
 }
