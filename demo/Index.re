@@ -4,7 +4,7 @@ ReactDOMRe.renderToElementWithId(
          remote =>
            switch (remote) {
            | Script.NotAsked => ReasonReact.string("not asked")
-           | Script.Loading => ReasonReact.string("loading asked")
+           | Script.Loading => ReasonReact.string("loading")
            | Script.Success => ReasonReact.string("success")
            | Script.Failure => ReasonReact.string("failure")
            }
