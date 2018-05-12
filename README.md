@@ -2,10 +2,13 @@
 
 Script loader for reason-react.
 
+A debt is owed to: https://github.com/blueberryapps/react-load-script;
 
 # usage 
 
 ```
+
+
   <Script url="https://www.gstatic.com/charts/loader.js">
     ...(
          remote =>
